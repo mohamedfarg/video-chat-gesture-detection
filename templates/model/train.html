@@ -1,0 +1,72 @@
+{% extends "../base.html" %}
+{% load static %}
+
+
+{% block title %}
+  train
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css" integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <link href="{% static 'css/style.css' %}" rel="stylesheet" /> -->
+{% endblock links %}
+  {% block body %}
+    
+    <!-- {% include "../layouts/header.html" %} -->
+    <div class="container my-5">
+      <div class="row my-5">
+      
+
+        
+
+              <div class="col-lg-8">
+
+                <video id="local-video" class="pl-5 vid" style="float: left" width="" height="" controls autoplay muted>
+                    
+                </video>
+              </div>
+              <div class="col-lg-4">
+                <h4 class="py-3 "  style="text-align: center;">Console</h4>
+                
+                <textarea class="form-control " id="console"  rows="15" placeholder="console"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-7">
+                
+                <textarea class="form-control " id="model_result" columns="15" rows="10" placeholder="result"></textarea>
+              </div>
+              <div class="col-lg-5">
+                <div class="row mx-4 ">
+                  <input id="class_title" type="text" class="form-control mx-4" placeholder="sample title">
+                  <button id="Add" class="btn btn-danger mx-4 my-2">Add class</button>
+                  <button id="train" class="btn btn-danger mx-4 my-2">Train</button>
+                  <button id="save" class="btn btn-danger mx-4 my-2">save</button>
+                  <a role="button" class="btn btn-danger mx-4 my-2" href="{% url 'model' %}">Back</a>
+                  <!-- <button id="speac" class="btn btn-danger mx-4 my-3">Speak</button> -->
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        
+        {% endblock body %}
+
+  
+ 
+  {% block scripts %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <script src="{% static 'js/model/media.js' %}"></script>
+  <script src="{% static 'js/model/train.js' %}"></script>
+  
+
+  {% endblock scripts %}
+  
+  
+  

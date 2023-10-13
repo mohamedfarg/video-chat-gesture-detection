@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Activty
+{% endblock title %}
+{% block links %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="{% static '/css/theme.min.css' %}" rel="stylesheet" />
+<!-- <link href="{% static 'css/style.min.css' %}" rel="stylesheet" /> -->
+<link href="{% static 'css/style2.css' %}" rel="stylesheet" />
+
+{% endblock links %}
+{% block body %}
+
+{% include 'layouts/header.html' %}
+        <section >
+          <div  >
+            <div class="d-flex justify-content-center " >
+
+              <div class="width-50 my-5 py-5 " id="bb">
+                <h1 style="text-align:center;">Chat Rooms</h1>
+                <ol>
+                
+                {% for room in rooms  %}
+                  <li><a href="{% url 'video_call' room.model_name %}">{{ room.model_name }}</a></li>
+            
+                {% endfor %}
+                  
+                  
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {% endblock body %}
+          
+
+          
+     
+
+
+     

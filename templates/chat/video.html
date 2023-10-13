@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Video Call</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %} ">
+
+    <!-- <link rel="stylesheet" href=" {% static 'css/style.css' %} "> -->
+    <link rel="stylesheet" href=" {% static 'css/video.css' %} ">
+
+    <style>
+        
+    </style>
+
+    <script>
+        let myName;
+    </script>
+</head>
+
+<body>
+    
+        <!-- <h3 id="label-username">UserName</h3> -->
+    <div>
+        <input type="text" id="username" placeholder="Username">
+        <button  id="btn-join">Join</button>
+    </div>
+    <!-- <div class="main-grid-container">
+        <div id="video-container">
+            <div>
+                <video id="local-video" style="float: left" width="" height="" controls autoplay playsinline>
+                    
+                </video>
+            </div>
+            <button id="btn-toggle-audio">mute</button>
+            <button id="btn-toggle-video">vid off</button>
+        </div>
+        <div id="chat">
+            <h3>chat</h3>
+            <div id="messages">
+                <ul id="message-list">
+
+                </ul>
+            </div>
+            <div>
+                <input type="text" id="msg">
+                <button id="btn-send-msg">Send message</button>
+                <button id="btn-share-screen">share screen</button>
+            </div>
+        </div>
+    </div> -->
+    
+
+    <section id="room-name-wrapper">
+        <p>Room Name: {{ room_name }}</p>
+    </section>
+
+            <div id="video-streams">
+
+                <!-- <div class="video-container" id="user-container-1">
+                    <div class="video-player" id="user-1"></div> 
+                    <div class="username-wrapper"><span class="user-name">Dennis Ivanov</span></div>
+                </div> -->
+
+                
+
+                <div class="video-container" id="user-container-4">
+                    <div class="video-player d-flex justify-content-center" id="user-5">
+                        <video id="local-video" style="float: left" width="" height="" controls autoplay playsinline>
+                    
+                        </video>
+                    </div> 
+                    <div class="username-wrapper"><span class="user-name" id="label-username">user</span></div>
+                </div>  
+            </div>
+
+    <section id="controls-wrapper">
+        <div class="icon-wrapper">
+            <img class="control-icon" id="btn-toggle-audio" src=" {% static 'images/microphone.svg' %} " />
+        </div>
+
+        <div class="icon-wrapper">
+            <img class="control-icon" id="btn-toggle-video" src=" {% static 'images/video.svg' %} " />
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="{% url 'home' %}"><img class="control-icon" id="leave-btn" src=" {% static 'images/leave.svg' %} " /></a>
+        </div>
+    </section>
+    <div class="container my-5">
+        <div class="row" style="margin-top:100px">
+            <div class="col-lg-6">
+              <div class="wrapper">
+    
+                  <form action="#">
+                    <div class="row">
+            
+                      <textarea class="form-control " id="voice" columns="15" rows="9" placeholder="text to voice"></textarea>
+                    </div>
+                    <button id="speac" class="btn btn-danger  my-3 w-100">Convert To Speech</button>
+                    <div class="row">
+                 
+                        <div class="outer">
+                          <select></select>
+                        </div>
+                    </div>
+                  
+                  </form>
+                </div>
+          </div>
+          <div class="col-lg-6">
+        
+              <div class="form-group">
+    
+                <textarea id="textbox" columns="15" rows="9" placeholder="voice to text" class="form-control"></textarea>
+               
+                </div>
+               
+                <div class="form-group">
+                  
+                  <button id="start-btn" class="btn btn-danger w-100 my-3">Start</button>
+                  <button id="abort-btn" class="btn btn-danger w-100 my-3">Stop</button>
+               
+                <p id="instructions">Press the Start button</p>
+          </div>
+            
+          </div>
+
+    
+    
+          
+        </div>
+        <div class="row">
+            <div id="chat">
+                <h3>chat</h3>
+                <div id="messages">
+                    <ul id="message-list">
+    
+                    </ul>
+                </div>
+                <div>
+                    <input type="text" id="msg">
+                    <button id="btn-send-msg">Send message</button>
+                    <!-- <button id="btn-share-screen">share screen</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <script src="{% static 'js/video/main.js' %}" ></script>
+    
+    
+    <script src="{% static 'js/video/text_voice.js' %}"></script>
+    <script src="{% static 'js/video/voice.js' %}"></script> 
+
+    
+</body>
+
+</html>
